@@ -10,6 +10,7 @@ import Login from './Pages/Auth/Login/Login';
 import Register from './Pages/Auth/Register/Register';
 import RequireAuth from './Pages/Auth/RequireAuth/RequireAuth';
 import VolunteerRegister from './Pages/VolunteerRegister/VolunteerRegister';
+import VolunteerRegisterList from './Pages/VolunteerRegisterList/VolunteerRegisterList';
 
 
 function App() {
@@ -25,6 +26,12 @@ function App() {
             <Route path='/addvolunteer' element={ 
                 <RequireAuth>
                   <AddVolunteer /> 
+                </RequireAuth>
+             }>  </Route>
+
+            <Route path='/registerlist' element={ 
+                <RequireAuth>
+                  <VolunteerRegisterList />
                 </RequireAuth>
              }>  </Route>
             

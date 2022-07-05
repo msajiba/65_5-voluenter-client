@@ -31,8 +31,7 @@ const Login = () => {
       ] = useSignInWithEmailAndPassword(auth);
 
       const [signInWithGoogle, userGoogle] = useSignInWithGoogle(auth);
-      console.log(userGoogle);
-
+   
       // USER LOGIN
       const userLoginHandler = event =>{
 
