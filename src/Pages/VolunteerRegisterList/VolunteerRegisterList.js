@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Container, Col, Row, Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-import img from '../../assets/logos/trash-2 9.png';
+
 
 const VolunteerRegisterList = () => {
 

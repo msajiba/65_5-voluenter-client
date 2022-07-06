@@ -8,7 +8,7 @@ import { signOut } from 'firebase/auth';
 
 const Header = () => {
 
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     if(loading){
         return <Spinner animation="border" /> 
