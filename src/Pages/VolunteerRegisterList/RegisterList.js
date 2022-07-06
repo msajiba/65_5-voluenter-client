@@ -1,11 +1,11 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
-import img from '../../assets/logos/trash-2 9.png';
+import { Button } from 'react-bootstrap';
 
-const RegisterList = ({list}) => {
-    const {name, user, date, description, volunteername} = list;
+const RegisterList = ({list, handleDeleteRegister}) => {
+    const {name, user, date, volunteername, _id } = list;
+
     return (
-        <div>
+        <>
            
 
                
@@ -14,12 +14,16 @@ const RegisterList = ({list}) => {
                         <td> {user} </td>
                         <td> {date} </td>
                         <td> {volunteername} </td>
-                        <td> <img className='w-25' src={img} alt="" /> </td>
+                        <td className='text-center'> 
+                           <Button 
+                                    onClick={()=>handleDeleteRegister(_id)}
+                                    variant='danger'> Delete </Button>
+                        </td>
                     </tr>
                
             
          
-        </div>
+        </>
     );
 };
 

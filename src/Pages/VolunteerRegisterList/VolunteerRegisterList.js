@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Container, Col, Row, Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
+import RegisterList from './RegisterList';
 
 
 const VolunteerRegisterList = () => {
@@ -18,10 +19,22 @@ const VolunteerRegisterList = () => {
         };   
 
         getRegisterList();
-
     }, []);
 
-    console.log(registerLists);
+    //delete volunteer register
+    const handleDeleteRegister =async(id) =>{
+        const accept = window.confirm('Are you sure delete ?');
+        if(accept){
+            const url = `http://localhost:5000/volunteerinfo/${id}`;
+            const res = await axios.delete(url);
+            
+            const remain = registerLists.filter(list => list._id !== id);
+           setRegisterLists(remain);
+           console.log(res);
+        }; 
+    };
+
+
 
     return (
         <>
@@ -46,15 +59,13 @@ const VolunteerRegisterList = () => {
                                 {
                                 registerLists.map(list=> 
 
-                                    <tr >
-                                        <td> {list.name} </td>
-                                        <td> {list.user} </td>
-                                        <td> {list.date} </td>
-                                        <td> {list.volunteername} </td>
-                                        <td className='text-center'> 
-                                            <Button variant='danger'> Delete </Button>
-                                        </td>
-                                    </tr>)  
+                                        <RegisterList 
+                                                    list={list}
+                                                    handleDeleteRegister={handleDeleteRegister}
+                                                    > 
+                                        </RegisterList>
+
+                                    )  
                                 }
                 
                     </tbody>
